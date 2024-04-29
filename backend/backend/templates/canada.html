@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Addresses in Canada</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        h1, h2 {
+            text-align: center;
+            color: #333;
+        }
+        .back-button {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 20px auto;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.back-button:hover {
+    background-color: #555;
+}
+
+        table {
+            width: 80%;
+            margin: 20px auto;
+            border-collapse: collapse;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: #f8f8f8;
+            color: #333;
+        }
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+        .fa-map-marker-alt {
+            color: #ff5252;
+        }
+        .fa-envelope {
+            color: #00bfa5;
+        }
+    </style>
+</head>
+<body>
+    <h1><i class="fas fa-map-marker-alt"></i> Addresses in Canada</h1>
+    <h2>Using Join <i class="fas fa-link"></i></h2>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Location ID</th>
+                <th>Street Address</th>
+                <th>Postal Code</th>
+                <th>City</th>
+                <th>State/Province</th>
+                <th>Country ID</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for location in canada_data %}
+            <tr>
+                <td>{{ location.0 }}</td>
+                <td>{{ location.1 }}</td>
+                <td>{{ location.2 }}</td>
+                <td>{{ location.3 }}</td>
+                <td>{{ location.4 }}</td>
+                <td>{{ location.5 }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <h2>Without Join <i class="fas fa-unlink"></i></h2>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Location ID</th>
+                <th>Street Address</th>
+                <th>Postal Code</th>
+                <th>City</th>
+                <th>State/Province</th>
+                <th>Country ID</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for location in canada_data_without_join %}
+            <tr>
+                <td>{{ location.0 }}</td>
+                <td>{{ location.1 }}</td>
+                <td>{{ location.2 }}</td>
+                <td>{{ location.3 }}</td>
+                <td>{{ location.4 }}</td>
+                <td>{{ location.5 }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+<a href="javascript:history.back()" class="back-button">Go Back</a>
+</body>
+</html>

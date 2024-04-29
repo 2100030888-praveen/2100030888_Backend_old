@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Locations Form</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+        .back-button {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #6c757d;
+            border: none;
+            border-radius: 4px;
+            color: white;
+            cursor: pointer;
+            font-size: 16px;
+            text-align: center;
+            display: block;
+            width: 100%;
+            text-decoration: none;
+        }
+        .back-button:hover {
+            background-color: #5a6268;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        label {
+            color: #555;
+            display: block;
+            margin-bottom: 5px;
+        }
+        input[type="text"],
+        select.form-control {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        input[type="number"],
+        select.form-control {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            background-color: #5cb85c;
+            border: none;
+            border-radius: 4px;
+            color: white;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        input[type="submit"]:hover {
+            background-color: #4cae4c;
+        }
+        /* Icon styles */
+        .icon {
+            position: relative;
+            padding: 10px;
+            background: #ddd;
+            color: black;
+            min-width: 40px;
+            text-align: center;
+            border-radius: 4px 0 0 4px;
+            left: 0;
+            top: 0;
+        }
+        .form-group {
+            position: relative;
+            margin-bottom: 20px;
+        }
+        .form-group input[type="text"],
+        .form-group input[type="number"],
+        .form-group select {
+            padding-left: 50px;
+        }
+        /* Specific icon colors */
+        .fa-map-marker-alt { background: #ff5252; color: white; }
+        .fa-envelope { background: #00bfa5; color: white; }
+        .fa-city { background: #fbc02d; color: white; }
+        .fa-building { background: #7b1fa2; color: white; }
+        .fa-flag { background: #0d47a1; color: white; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2><i class="fas fa-map-marked-alt"></i> Location Information</h2>
+        <form action="/save_location/" method="post">
+            {% csrf_token %}
+           <div class="form-group">
+    <i class="fas fa-flag icon"></i>
+    <input type="number" id="location_id" name="location_id" placeholder="Location ID">
+</div>
+
+<div class="form-group">
+    <i class="fas fa-map-marker-alt icon"></i>
+    <input type="text" id="street_address" name="street_address" placeholder="Street Address">
+</div>
+
+<div class="form-group">
+    <i class="fas fa-envelope icon"></i>
+    <input type="text" id="postal_code" name="postal_code" placeholder="Postal Code">
+</div>
+
+<div class="form-group">
+    <i class="fas fa-city icon"></i>
+    <input type="text" id="city" name="city" placeholder="City">
+</div>
+
+<div class="form-group">
+    <i class="fas fa-building icon"></i>
+    <input type="text" id="state_province" name="state_province" placeholder="State/Province">
+</div>
+
+<div class="form-group">
+    <i class="fas fa-flag icon"></i>
+    <select name="country_id" id="country_id" class="form-control" placeholder="Country ID">
+        {% for country in countries %}
+            <option value="{{ country.country_id }}">{{ country.country_id }}</option>
+        {% endfor %}
+    </select>
+</div>
+<input type="submit" value="Submit">
+
+        </form>
+        <a href="javascript:history.back()" class="back-button">Go Back</a>
+    </div>
+</body>
+</html>
