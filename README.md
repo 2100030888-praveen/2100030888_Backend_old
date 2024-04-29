@@ -7,7 +7,7 @@ Features:
 Our project's homepage offers three main functionalities through intuitive buttons:
 
 Insert Values: This button allows users to add records to both the "location" and "country" tables. It provides a seamless way to input new data into the system, ensuring that our database stays up-to-date with the latest information.
-Execute SQL Queries: The second button is dedicated to executing SQL queries. Users can input their custom SQL queries here, and the system will process them accordingly. This feature provides flexibility for users who may need to perform specific operations or retrieve particular data from the database.
+Execute SQL Queries: The second button is dedicated to executing SQL queries. The Queries given in the question.
 Technologies Used:
 
 To bring this project to life, we've leveraged the following technologies:
